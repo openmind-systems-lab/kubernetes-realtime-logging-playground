@@ -83,9 +83,12 @@ Generate correlated traffic in another terminal:
 ./scripts/demo.sh
 ```
 
+![Demo video](https://github.com/user-attachments/assets/1d538e6e-8dbb-4f18-91a4-c00cc89d908f)
+
 ## Verification
 
 ```bash
+![Verify video](https://github.com/user-attachments/assets/7b52ca22-d60b-4f30-85ca-8e620bd40e82)
 ./scripts/verify.sh
 kubectl get deployments,pods,services -n logging-demo
 kubectl get pods -n kubetail
@@ -95,8 +98,6 @@ In Kubetail, inspect both replicas of each workload. A request should produce ma
 
 ## Experiments
 
-### Follow a request across services
-
 Run `./scripts/demo.sh`, then search for a `correlation_id` and compare Orders and Payments streams.
 
 ### Observe pod replacement
@@ -105,6 +106,8 @@ Run `./scripts/demo.sh`, then search for a `correlation_id` and compare Orders a
 kubectl delete pod -n logging-demo \
   "$(kubectl get pods -n logging-demo -l app=orders-api -o jsonpath='{.items[0].metadata.name}')"
 ```
+
+![Pod replacement video](https://github.com/user-attachments/assets/5a5783e9-cdfb-4089-8d98-eeaaaaec2cd8)
 
 Observe the Deployment create a replacement and the workload log stream continue across pod lifecycles.
 
